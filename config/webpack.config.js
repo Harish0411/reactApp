@@ -246,7 +246,8 @@ module.exports = function (webpackEnv) {
       level: 'none',
     },
     optimization: {
-      minimize: isEnvProduction,
+     // minimize: isEnvProduction,
+      minimize: true,
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
@@ -260,6 +261,7 @@ module.exports = function (webpackEnv) {
               ecma: 8,
             },
             compress: {
+              drop_console: true, // Remove console.log statements
               ecma: 5,
               warnings: false,
               // Disabled because of an issue with Uglify breaking seemingly valid code:
