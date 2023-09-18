@@ -24,7 +24,7 @@ if(fileName){
   }
  
 }else{
-  alert("please fill the input box")
+  alert("please fill the input box empty input not allowed...")
 }
    
     setFileName("");
