@@ -24,14 +24,14 @@ form.input_form > input{
 }
 input:focus{
     outline: none;
-    border: 1px solid red;
+    border: 1px solid rgb(51, 0, 255);
 }
 button{
     font-size: 20px;
 
     padding: 15px 30px;
     border: none;
-    background-color: red;
+    background-color: rgb(51, 0, 255);
     margin: 5px;
     color: #ffff;
     cursor: pointer;
