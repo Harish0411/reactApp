@@ -205,16 +205,16 @@ module.exports = function (webpackEnv) {
       // The build folder.
       path: paths.appBuild,
       // Add /* filename */ comments to generated require()s in the output.
-      pathinfo: isEnvDevelopment,
+      pathinfo: true,
       // There will be one main bundle, and one file per asynchronous chunk.
       // In development, it does not produce real files.
       filename: isEnvProduction
         ? 'static/js/[name].[contenthash:8].js'
-        : isEnvDevelopment && 'static/js/bundle.js',
+        : true && 'static/js/bundle.js',
       // There are also additional JS chunk files if you use code splitting.
       chunkFilename: isEnvProduction
         ? 'static/js/[name].[contenthash:8].chunk.js'
-        : isEnvDevelopment && 'static/js/[name].chunk.js',
+        : true && 'static/js/[name].chunk.js',
       assetModuleFilename: 'static/media/[name].[hash][ext]',
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -226,7 +226,7 @@ module.exports = function (webpackEnv) {
             path
               .relative(paths.appSrc, info.absoluteResourcePath)
               .replace(/\\/g, '/')
-        : isEnvDevelopment &&
+        : true &&
           (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
     },
     cache: {
@@ -423,7 +423,7 @@ module.exports = function (webpackEnv) {
                 ],
                 
                 plugins: [
-                  isEnvDevelopment &&
+                  true &&
                     shouldUseReactRefresh &&
                     require.resolve('react-refresh/babel'),
                 ].filter(Boolean),
